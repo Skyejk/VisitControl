@@ -15,9 +15,15 @@ namespace VisitСontrol.Entities
     
     public partial class dbEntities : DbContext
     {
+        private static dbEntities context;
         public dbEntities()
             : base("name=dbEntities")
         {
+        }
+        public static dbEntities GetContext() { 
+            if (context == null)
+                context = new dbEntities();
+            return context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
