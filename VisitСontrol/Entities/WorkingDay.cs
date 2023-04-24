@@ -17,10 +17,10 @@ namespace VisitСontrol.Entities
         public int ID { get; set; }
         public int EmployeeID { get; set; }
         public System.DateTime ThisDay { get; set; }
-        public System.TimeSpan FirstVisit { get; set; }
-        public System.TimeSpan LeftForLunch { get; set; }
-        public System.TimeSpan ReturnedFromLunch { get; set; }
-        public System.TimeSpan LastLeaving { get; set; }
+        public Nullable<System.TimeSpan> FirstVisit { get; set; }
+        public Nullable<System.TimeSpan> LeftForLunch { get; set; }
+        public Nullable<System.TimeSpan> ReturnedFromLunch { get; set; }
+        public Nullable<System.TimeSpan> LastLeaving { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

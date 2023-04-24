@@ -20,6 +20,7 @@ namespace VisitСontrol.Entities
             : base("name=dbEntities")
         {
         }
+
         public static dbEntities GetContext() { 
             if (context == null)
                 context = new dbEntities();

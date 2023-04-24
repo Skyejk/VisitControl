@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище dbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="ID" />
@@ -41,10 +41,10 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="ThisDay" Type="date" Nullable="false" />
-          <Property Name="FirstVisit" Type="time" Precision="7" Nullable="false" />
-          <Property Name="LeftForLunch" Type="time" Precision="7" Nullable="false" />
-          <Property Name="ReturnedFromLunch" Type="time" Precision="7" Nullable="false" />
-          <Property Name="LastLeaving" Type="time" Precision="7" Nullable="false" />
+          <Property Name="FirstVisit" Type="time" Precision="7" />
+          <Property Name="LeftForLunch" Type="time" Precision="7" />
+          <Property Name="ReturnedFromLunch" Type="time" Precision="7" />
+          <Property Name="LastLeaving" Type="time" Precision="7" />
         </EntityType>
         <Association Name="FK__Employee__PostID__377B294A">
           <End Role="Post" Type="Self.Post" Multiplicity="1" />
@@ -70,7 +70,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
+        <EntityContainer Name="Хранилище dbModelContainer">
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -88,7 +88,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="ID" />
@@ -128,10 +128,10 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="ThisDay" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FirstVisit" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="LeftForLunch" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="ReturnedFromLunch" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="LastLeaving" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="FirstVisit" Type="Time" Precision="7" />
+          <Property Name="LeftForLunch" Type="Time" Precision="7" />
+          <Property Name="ReturnedFromLunch" Type="Time" Precision="7" />
+          <Property Name="LastLeaving" Type="Time" Precision="7" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__WorkingDa__Emplo__3A5795F5" FromRole="WorkingDay" ToRole="Employee" />
         </EntityType>
         <Association Name="FK__Employee__PostID__377B294A">
@@ -177,9 +177,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="dbEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище dbModelContainer" CdmEntityContainer="dbEntities">
           <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="Model.Employee">
+            <EntityTypeMapping TypeName="dbModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="PostID" ColumnName="PostID" />
@@ -192,7 +192,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="Model.Post">
+            <EntityTypeMapping TypeName="dbModel.Post">
               <MappingFragment StoreEntitySet="Post">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="PostName" ColumnName="PostName" />
@@ -200,7 +200,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Model.sysdiagrams">
+            <EntityTypeMapping TypeName="dbModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -211,7 +211,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WorkingDay">
-            <EntityTypeMapping TypeName="Model.WorkingDay">
+            <EntityTypeMapping TypeName="dbModel.WorkingDay">
               <MappingFragment StoreEntitySet="WorkingDay">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
