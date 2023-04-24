@@ -72,8 +72,12 @@ namespace VisitСontrol
         private void referenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Приложение разработано студентом группы ПР-49, специально для МБУК Воровсколесского СДК",
-                "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly, false);
+                "Справка",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly,
+                false);
         }
     }
 }
